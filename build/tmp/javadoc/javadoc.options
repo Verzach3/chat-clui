@@ -1,0 +1,7 @@
+-classpath '/home/verzach3/IdeaProjects/chat-clui/build/classes/java/main:/home/verzach3/IdeaProjects/chat-clui/build/resources/main:/home/verzach3/.gradle/caches/modules-2/files-2.1/com.gitlab.klamonte/jexer/0.3.2/aa47df058528610afe4cc7d356fcbe4bb2c629a0/jexer-0.3.2.jar:/home/verzach3/.gradle/caches/modules-2/files-2.1/org.json/json/20201115/f8e7a9953822c90e0701c3cd50764b5e9063f85c/json-20201115.jar'
+-d '/home/verzach3/IdeaProjects/chat-clui/build/docs/javadoc'
+-doctitle 'chat-clui 1.0-SNAPSHOT API'
+-notimestamp 
+-quiet 
+-windowtitle 'chat-clui 1.0-SNAPSHOT API'
+'/home/verzach3/IdeaProjects/chat-clui/src/main/java/main.java'
