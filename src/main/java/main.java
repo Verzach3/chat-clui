@@ -12,8 +12,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
-
 public class main{
+
+    public static String serverdir;
+
     public static boolean fs(int a){
         boolean first = true;
         if (a == 1){
@@ -25,7 +27,7 @@ public class main{
     //POST Method
     public static void sender(String user, String message) throws IOException{
 
-        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:3000/api/tasks/").openConnection();
+        HttpURLConnection connection = (HttpURLConnection) new URL("http://"+ serverdir +":3000/api/tasks/").openConnection();
 
         connection.setRequestMethod("POST");
 
@@ -52,7 +54,7 @@ public class main{
     //GET Method
     public static String watcher() throws IOException {
 
-        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:3000/api/tasks/").openConnection();
+        HttpURLConnection connection = (HttpURLConnection) new URL("http://" + serverdir + ":3000/api/tasks/").openConnection();
 
         connection.setRequestMethod("GET");
 
@@ -78,6 +80,7 @@ public class main{
         return messages;
     }
 
+
     public static void main(String[] args) throws Exception {
 
 
@@ -87,13 +90,16 @@ public class main{
 
         //Login
         TWindow login_window = app.addWindow("Verzach3's Messenger", 50, 25);
-        TLabel login_label = login_window.addLabel("Enter your username:",15,8);
-        final  TField login_textfield = login_window.addField(15,10,20,false,"");
-        final TButton login_button = login_window.addButton("Login", 22, 12,
+        TLabel login_label = login_window.addLabel("Enter your username:",10,8);
+        final  TField login_textfield = login_window.addField(10,9,30,false,"");
+        TLabel serverdir_label = login_window.addLabel("Enter the server direction:",10,12);
+        final  TField serverdir_textfield = login_window.addField(10,13,30,false,"");
+        final TButton login_button = login_window.addButton("Login", 22, 15,
                 new TAction() {
                     @Override
                     public void DO() {
                         String username = login_textfield.getText();
+                        serverdir = serverdir_textfield.getText();
                         login_window.close();
                         //Main Screen
                         TWindow chat_main_screen = app.addWindow("Verzach3's Messenger", 50, 25);
@@ -130,7 +136,7 @@ public class main{
                                             } catch (IOException e) {
                                                 e.printStackTrace();
                                             }
-                                        } 
+                                        }
                                         else {
                                             progress.setValue(progress.getValue() + 10);
                                         }
